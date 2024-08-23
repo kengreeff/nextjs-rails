@@ -2,7 +2,7 @@ name: Deploy API
 on:
   push:
     branches:
-      - main
+      - github-actions
 jobs:
   deploy:
     name: Deploy to Fly.io
