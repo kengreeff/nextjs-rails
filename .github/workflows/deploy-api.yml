@@ -1,0 +1,12 @@
+name: Deploy API
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: Deploy to Fly.io
+    runs-on: ubuntu-latest
+    concurrency: deploy-group    # optional: ensure only one action runs at a time
+    steps:
+      - run: echo "deploy api"
