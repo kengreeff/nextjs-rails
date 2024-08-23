@@ -19,7 +19,7 @@ module V1
       @user = User.new(user_params)
 
       if @user.save
-        render :show, status: :created, location: @user
+        render :show, status: :created, location: [:v1, @user]
       else
         render json: @user.errors, status: :unprocessable_entity
       end
@@ -29,7 +29,7 @@ module V1
     # PATCH/PUT /users/1.json
     def update
       if @user.update(user_params)
-        render :show, status: :ok, location: @user
+        render :show, status: :ok, location: [:v1, @user]
       else
         render json: @user.errors, status: :unprocessable_entity
       end
@@ -50,6 +50,10 @@ module V1
       # Only allow a list of trusted parameters through.
       def user_params
         params.fetch(:user, {})
+          .permit(
+            :email,
+            :name,
+          )
       end
   end
 end
