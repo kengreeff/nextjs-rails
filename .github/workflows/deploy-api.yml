@@ -9,4 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
-      - run: echo "deploy api"
+      - uses: actions/checkout@v4
+      - uses: superfly/flyctl-actions/setup-flyctl@main
+      - run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
