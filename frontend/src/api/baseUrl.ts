@@ -5,6 +5,6 @@ const baseUrls = {
     test: '',
 }
 
-const baseUrl = baseUrls[process.env.NODE_ENV || 'development']
+const baseUrl = baseUrls[process.env.NEXT_PUBLIC_APP_ENV || process.env.NODE_ENV || 'development']
 
 export default baseUrl

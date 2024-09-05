@@ -3,8 +3,8 @@ import axios from "axios";
 import baseURL from "./baseUrl";
 
 const axiosInstance = axios.create({
-    baseURL,
-    timeout: 1000,
+  baseURL,
+ timeout: 1000,
 })
 
 type ApiOptions = {
